@@ -4,6 +4,7 @@
   (if (< n 3)
       n
       (+ (f (- n 1)) (f (- n 2)) (f (- n 3)))))
+; this solves the same function employing an iterative process
 (define (f-improved n)
   (define (f-iter a b c count)
     (if (= count 0)
