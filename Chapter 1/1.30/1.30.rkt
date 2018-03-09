@@ -5,9 +5,3 @@
         result
         (iter (next a) (+ result (term a)))))
   (iter a 0))
-(define (inc n) (+ n 1))
-(define (identity x) x)
-(define (sum-integers a b)
-  (sum-new identity a inc b))
-
-(sum-integers 1 10)
