@@ -1,0 +1,15 @@
+#lang racket
+(define tolerance 0.0001)
+(define (fixed-point f first-guess)
+  (define (try guess)
+    (let ((next (f guess)))
+      (display next)
+      (newline)
+      (if ((lambda (v1 v2) (< (abs (- v1 v2)) tolerance)) guess next)
+          next
+          (try next))
+      ))
+  (try first-guess))
+(define (exercise x)
+  (fixed-point (lambda (x) (/ (log 1000) (log x))) 10.0))
+(exercise 9)
