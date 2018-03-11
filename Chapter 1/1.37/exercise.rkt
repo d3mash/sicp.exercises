@@ -11,5 +11,6 @@
         result
         (iter (- k 1) (/ (n k) (+ (d k) result)))))
   (iter k 0))
+
 (provide cont-frac-rec
          cont-frac-iter)
