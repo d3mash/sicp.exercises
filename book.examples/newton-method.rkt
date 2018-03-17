@@ -23,4 +23,3 @@
   (fixed-point-of-transform (lambda (y) (/ x y))
                average-damp
                1.0))
-(sqrt 9)
