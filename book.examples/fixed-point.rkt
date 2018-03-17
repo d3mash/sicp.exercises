@@ -7,6 +7,5 @@
           next
           (try next))))
   (try first-guess))
-(define (sqrt x)
-  (fixed-point (lambda (y) (/ (+ y (/ x y))2.0)) 1.0))
-(sqrt 9)
+
+(provide fixed-point)
