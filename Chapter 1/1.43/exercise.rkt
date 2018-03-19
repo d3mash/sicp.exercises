@@ -11,9 +11,14 @@
                   x
                   ((repeated-rec function (- number 1)) (function x)))))
 (define (repeated-iter function number)
+  (define (iter result counter)
+    (if (= counter 0)
+        result
+        (iter (function result) (- counter 1))))
+  (lambda (x) (iter x number)))
 
-  
 (provide inc
          square
          cube
-         repeated-rec)
+         repeated-rec
+         repeated-iter)
