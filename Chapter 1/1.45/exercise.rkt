@@ -21,8 +21,11 @@
 
 (define (forth-power-root x)
   (fixed-point (repeated-iter (average-damp (lambda (y) (/ x (* y y y)))) 1.0) 2))
-
+(define (damp-count n)
+  (floor (log2 n)))
+(define (log2 x)
+  (/ (log x) (log 2)))
 (define (n-power-root x n)
-  (fixed-point (repeated-iter (average-damp (lambda (y) (/ x (expt y (- n 1))))) 1.0) (- n 2)))
-
+  (fixed-point (repeated-iter (average-damp (lambda (y) (/ x (expt y (- n 1))))) 1.0) (log2 n)))
+(n-power-root 81 4)
 ; for n-power root one needs to average-damp the function (n-2) times
