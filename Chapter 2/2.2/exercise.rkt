@@ -32,5 +32,7 @@
 (define point1 (make-point 1.0 2.0))
 (define point2 (make-point 5.0 5.0))
 (define segment-test (make-segment point1 point2))
-(print-point (midpoint segment-test))
+;(print-point (midpoint segment-test))
+
+(provide (all-defined-out))
   
