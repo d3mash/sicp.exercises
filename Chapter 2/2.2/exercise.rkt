@@ -11,12 +11,12 @@
 (define (make-segment start end)
   (cons start end))
 (define (start-segment segment)
-  (car (segment)))
+  (car segment))
 (define (end-segment segment)
-  (cdr (segment)))
+  (cdr segment))
 (define (midpoint segment)
-  (cons (/ (+ (car (car segment)) (car (cdr segment))) 2)
-        (/ (+ (cdr (car segment)) (cdr (cdr segment))) 2)))
+  (cons (/ (+ (x-point (start-segment segment)) (x-point (end-segment segment))) 2)
+        (/ (+ (y-point (start-segment segment)) (y-point (end-segment segment))) 2)))
 
 ; point-printer
 (define (print-point point)
