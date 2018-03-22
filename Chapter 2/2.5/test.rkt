@@ -1,0 +1,12 @@
+#lang racket
+(require "exercise.rkt")
+(require test-engine/racket-tests)
+(define first-pair (cons 0 0))
+(define second-pair (cons 5 4))
+(check-expect first-pair 1)
+(check-expect (car first-pair) 0)
+(check-expect (cdr first-pair) 0)
+(check-expect second-pair 2592)
+(check-expect (car second-pair) 5)
+(check-expect (cdr second-pair) 4)
+(test)
