@@ -15,8 +15,11 @@
 (define (make-center-percent center percent)
   (define absolute-diff
     (* (/ center 100) percent))
-  (make-interval (- center absolute-diff)
-                 (+ center absolute-diff)))
+  (if (= center 0)
+      (error "center can't be zero")
+      
+      (make-interval (- center absolute-diff)
+                     (+ center absolute-diff))))
 
 (define (percent interval)
   (abs (* (/ ( - (upper-bound interval) (center interval)) (center interval)) 100)))
