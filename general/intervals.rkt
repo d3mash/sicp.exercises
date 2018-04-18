@@ -31,16 +31,14 @@
 (define (width i)
   (/ (- (upper-bound i) (lower-bound i)) 2))
 
-(define (make-center-percent center percent)
+(define (make-center-percent c p)
   (define absolute-diff
-    (* (/ center 100) percent))
-  (if (= center 0)
+    (* (/ c 100) p))
+  (if (= c 0)
       (error "center can't be zero")
-      
-      (make-interval (- center absolute-diff)
-                     (+ center absolute-diff))))
-
-(define (percent interval)
-  (abs (* (/ ( - (upper-bound interval) (center interval)) (center interval)) 100)))
+      (make-interval (- c absolute-diff)
+                     (+ c absolute-diff))))
+(define (percent x)
+  (abs (* (/ ( - (upper-bound x) (center x)) (center x)) 100)))
 
 (provide (all-defined-out))
