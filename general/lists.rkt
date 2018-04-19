@@ -1,8 +1,8 @@
 #lang racket
 (define (list-ref list n)
   (if (= n 0)
-      (car items)
-      (list-ref (cdr items) (- n 1))))
+      (car list)
+      (list-ref (cdr list) (- n 1))))
 
 (define (length list)
   (define (iter a count)
