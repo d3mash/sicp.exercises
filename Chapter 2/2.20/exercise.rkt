@@ -1,0 +1,16 @@
+#lang racket
+(require (file "../2.18/exercise.rkt"))
+(require (file "../../general/primitives.rkt"))
+(define (same-parity . list)
+  (if (null? list)
+      (error "list can't be empty")
+      (let ((base-parity (abs (remainder (car list) 2))))
+        (define (iter input output)
+          (if (null? input)
+              (reverse output)
+              (if (= (abs (remainder (car input) 2)) base-parity)
+                  (iter (cdr input) (cons (car input) output))
+                  (iter (cdr input) output))))
+        (iter list null))))
+
+(provide (all-defined-out))
