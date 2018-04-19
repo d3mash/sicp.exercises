@@ -1,0 +1,10 @@
+#lang racket
+(require test-engine/racket-tests)
+(require (file "exercise.rkt"))
+(define squares (list 1 4 9 16 25))
+(define one-list (list 1))
+(define empty-list null)
+(check-expect (reverse squares) '(25 16 9 4 1))
+(check-expect (reverse one-list) '(1))
+(check-expect (reverse empty-list) null)
+(test)
