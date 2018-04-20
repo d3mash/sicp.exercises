@@ -1,0 +1,11 @@
+#lang racket
+(define (for-each func list)
+  (if (not (null? list))
+      (let ((rest (cdr list)))
+        (func (car list))
+        (if (not (null? rest))
+            (for-each func rest)
+            true))
+      null))
+(for-each (lambda (x) (newline) (display x))
+          (list 1 2 3 4 5))
