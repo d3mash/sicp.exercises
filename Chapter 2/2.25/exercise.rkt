@@ -5,10 +5,10 @@
 
 ; use cars and cdrs to get 7 from lists
 
-(cdr (car (cdr (cdr list-1))))
-(cdaddr list-1)
+(car (cdr (car (cdr (cdr list-1)))))
+(car (cdaddr list-1))
 
 (car (car list-2))
 (caar list-2)
 
-(cdr (car (cdr (car (cdr (car (cdr (car (cdr (car (cdr list-3)))))))))))
+(car (cdr (car (cdr (car (cdr (car (cdr (car (cdr (car (cdr list-3))))))))))))
