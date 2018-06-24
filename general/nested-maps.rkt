@@ -19,5 +19,4 @@
   (map make-pair-sum
        (filter prime-sum?
                (unique-pairs n))))
-(prime-sum-pairs 6)
 (provide (all-defined-out))
