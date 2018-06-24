@@ -1,0 +1,10 @@
+#lang racket
+(require (file "../../general/nested-maps.rkt"))
+(require (file "../../general/enumerate-interval.rkt"))
+(define (unique-pairs n)
+  (define interval (enumerate-interval 1 n))
+  (flatmap (lambda (i)
+             (map (lambda (j) (list i j))
+                  (enumerate-interval 1 (- i 1))))
+           interval))
+(provide unique-pairs)
