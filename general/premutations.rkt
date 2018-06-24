@@ -1,0 +1,12 @@
+#lang racket
+(require (file "nested-maps.rkt"))
+(define (remove item sequence)
+  (filter (lambda (x) (not (= x item)))
+          sequence))
+(define (permutations s)
+  (if (null? s)
+      (list null)
+      (flatmap (lambda (x)
+                 (map (lambda (p) (cons x p))
+                      (permutations (remove x s))))
+               s)))
