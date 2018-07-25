@@ -14,13 +14,12 @@
              (flatmap (lambda (j)
                         (map (lambda (k)
                                (list i j k))
-                             (enumerate-interval 1  bound)))
-                      (enumerate-interval 1 bound)))
+                             (enumerate-interval 1  (- j 1))))
+                      (enumerate-interval 1 (- i 1))))
            (enumerate-interval 1 bound)))
 (define (triplets-with-sum bound sum)
   (filter (lambda (x) (= (list-sum x) sum))
           (unique-triplets bound)))
-
 
 (provide triplets-with-sum)
   
