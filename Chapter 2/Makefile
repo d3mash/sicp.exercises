@@ -8,8 +8,8 @@ exercisefolder:
 	echo '(require test-engine/racket-tests)' >> $n/test.rkt
 	echo '(require "exercise.rkt")' >> $n/test.rkt 
 test:
-	racket '$n/test.rkt'
+	racket '2.$n/test.rkt'
 commit:
 	git add '2.$n'
-	git commit m = 'add 2.$n solution'
+	git commit -m 'add 2.$n solution'
 	git push
