@@ -1,12 +1,12 @@
 exercisefolder:
-	mkdir $n
-	cd $n
-	touch '$n/exercise.rkt'
-	touch '$n/test.rkt'
-	echo '#lang racket' >> $n/exercise.rkt
-	echo '#lang racket' >> $n/test.rkt
-	echo '(require test-engine/racket-tests)' >> $n/test.rkt
-	echo '(require "exercise.rkt")' >> $n/test.rkt 
+	mkdir 2.$n
+	cd 2.$n
+	touch '2.$n/exercise.rkt'
+	touch '2.$n/test.rkt'
+	echo '#lang racket' >> 2.$n/exercise.rkt
+	echo '#lang racket' >> 2.$n/test.rkt
+	echo '(require test-engine/racket-tests)' >> 2.$n/test.rkt
+	echo '(require "exercise.rkt")' >> 2.$n/test.rkt 
 test:
 	racket '2.$n/test.rkt'
 commit:
