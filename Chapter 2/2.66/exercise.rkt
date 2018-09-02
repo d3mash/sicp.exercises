@@ -9,7 +9,7 @@
 (define (lookup key database)
   (let ((current-key (get-key (entry database))))
     (cond ((null? database) #f)
-          ((= current-key key) (get-key (entry database)))
+          ((= current-key key) current-key)
           ((< current-key key) (lookup key (left-branch database)))
           ((> current-key key) (lookup key (right-branch database))))))
 
