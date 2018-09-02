@@ -24,7 +24,7 @@
                     (left-branch set)
                     (adjoin-set x (right-branch set))))))
 
-(provide empty
+(provide entry
          right-branch
          left-branch
          make-tree
