@@ -31,7 +31,7 @@
                       (cons (empty tree)
                             (copy-to-list (right-branch tree)
                                           result-list)))))
-  (copy-to-list tree '())
+  (copy-to-list tree '()))
 
 ; the results of applying both procedures to trees above are identical
 ; however, the steps growth of first one is teta(logn), due to the
