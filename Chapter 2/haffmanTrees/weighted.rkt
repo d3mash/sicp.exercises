@@ -18,5 +18,4 @@
 
 (provide adjoin-set
          make-leaf-set)
-        
                   

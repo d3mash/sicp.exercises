@@ -7,7 +7,7 @@
         (else (error "bad bit" bit))))
 (define (decode bits tree)
   (define (decode-1 bits current-branch)
-    (if (null? branch)
+    (if (null? bits)
         '()
         (let ((next-branch
                (choose-branch (car bits) current-branch)))
