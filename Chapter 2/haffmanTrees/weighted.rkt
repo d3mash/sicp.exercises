@@ -15,7 +15,7 @@
         (adjoin-set (make-leaf (car pair)
                                (cadr pair))
                     (make-leaf-set (cdr pairs))))))
-
+                      
 (provide adjoin-set
          make-leaf-set)
                   

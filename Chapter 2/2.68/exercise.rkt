@@ -12,17 +12,34 @@
                                    (make-leaf 'C 1)))))
 (define sample-message '(A D A B B C A))
 
+(define (contains-symbol? symbol seq)
+  (cond ((null? seq) false)
+	((eq? symbol (car seq)) true)
+	(else (contains-symbol? symbol (cdr seq)))))
+
 (define (encode message tree)
   (if (null? message)
-      '()
-      (append (encode-symbol (car message) tree)
-              (encode (cdr message) tree))))
+    '()
+    (append (encode-symbol (car message) tree)
+	    (encode (cdr message) tree))))
+
 (define (encode-symbol symbol tree)
-  (cond ((leaf? tree) (if (eq? (symbol-leaf tree) symbol)
-                          '()
-                          (error "symbol not in decoding tree" symbol)))
-        ((eq? symbol (symbol-leaf (left-branch tree))) '(0))
-        (else (append '(1) (encode-symbol symbol (right-branch tree))))))
+  (define (encode-1 current-branch)
+    (if (leaf? current-branch)
+      '()
+      (let ((next (next-branch symbol current-branch)))
+	(cons (car next)
+	      (encode-1 (cdr next))))))
+  (if (contains-symbol? symbol (symbols tree))
+    (encode-1 tree)
+    (error "there is no such symbol in the tree")))
+
+(define (next-branch symbol tree)
+  (if (contains-symbol? symbol (symbols (left-branch tree)))
+    (cons 0 (left-branch tree))
+    (cons 1 (right-branch tree))))
+    
+(provide encode)
 (provide encode
          sample-message
          sample-tree)

@@ -3,9 +3,6 @@
          "../haffmanTrees/primitives.rkt"
          "../haffmanTrees/decode.rkt")
 
-(define (generate-huffman-tree pairs)
-  (successive-merge (make-leaf-set pairs)))
-
 (define (successive-merge leaf-set)
   (if (null? (cdr leaf-set))
       (car leaf-set)
@@ -16,4 +13,9 @@
                            (make-code-tree first
                                            second)
                            rest)))))
+(define (generate-huffman-tree pairs)
+  (successive-merge (make-leaf-set pairs)))
+
+
+
 (provide generate-huffman-tree)
