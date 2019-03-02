@@ -13,7 +13,7 @@
               (* (denom y) (denom x))))
   (define (sub-rat x y)
     (make-rat (- (* (numer x) (denom y))
-                 (* (number y) (denom x)))
+                 (* (numer y) (denom x)))
               (* (denom y) (denom x))))
   (define (mul-rat x y)
     (make-rat (* (numer x) (numer y))
@@ -34,3 +34,6 @@
   (put 'make 'rational
        (lambda (n d) (tag (make-rat n d))))
   'done)
+
+(define (make-rational n d)
+  ((get 'make 'rational) n d))
