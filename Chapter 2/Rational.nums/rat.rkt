@@ -1,5 +1,5 @@
 #lang racket
-(require "pairs.rkt")
+(require (file "../../general/pairs.rkt"))
 (require (file "../../general/primitives.rkt"))
 
 ; introducing rational numbers abstraction via built-in cons car and cdr
