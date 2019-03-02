@@ -1,0 +1,18 @@
+#lang racket
+(define (make-account balance password)
+  (define (withdraw amount pass)
+    (cond ((not (eq? pass password)) 'Denied!)
+          ((>= balance amount) (begin (set! balance (- balance amount))
+                                      balance))
+          (else 'No-money)))
+  (define (deposit amount pass)
+    (cond ((not (eq? pass password)) 'Denied!)
+          (else (set! balance (+ balance amount))
+                balance)))
+  (define (dispatch symbol)
+    (cond ((eq? symbol 'withdraw) withdraw)
+          ((eq? symbol 'deposit) deposit)
+          (else (error "No such op") symbol)))
+  dispatch)
+  
+(provide make-account)
