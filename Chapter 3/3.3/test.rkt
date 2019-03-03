@@ -7,5 +7,6 @@
 (check-expect ((acc 'withdraw) 400 'wrong) 'Denied!)
 (check-expect ((acc 'deposit) 100 'secret) 500)
 (check-expect ((acc 'withdraw) 501 'secret) 'No-money)
+(check-expect ((acc 'nullify) 'secret) 0)
 
 (test)

@@ -9,10 +9,15 @@
     (cond ((not (eq? pass password)) 'Denied!)
           (else (set! balance (+ balance amount))
                 balance)))
+  (define (nullify password)
+    (set! balance 0)
+    balance)
   (define (dispatch symbol)
     (cond ((eq? symbol 'withdraw) withdraw)
           ((eq? symbol 'deposit) deposit)
+          ((eq? symbol 'nullify) nullify)
           (else (error "No such op") symbol)))
   dispatch)
-  
+(define myaccount (make-account 1500 'gosha-noobik))
+
 (provide make-account)
