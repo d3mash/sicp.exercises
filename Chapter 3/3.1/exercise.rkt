@@ -5,3 +5,4 @@
       (+ amount x))))
 
 (provide make-accumulator)
+(evil changes)
