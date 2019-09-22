@@ -1,8 +1,7 @@
 #lang racket
 (define (make-accumulator amount)
-  (let ((init amount))
-    (lambda (x)
-      (+ amount x))))
+  (lambda (addition)
+    (set! amount (+ amount addition))
+    amount))
 
 (provide make-accumulator)
-(evil changes)

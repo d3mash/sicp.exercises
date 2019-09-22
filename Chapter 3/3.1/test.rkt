@@ -2,7 +2,9 @@
 (require test-engine/racket-tests)
 (require "exercise.rkt")
 
-(check-expect ((make-accumulator 5) 15) 20)
+(define accumulator (make-accumulator 0))
+(check-expect (accumulator 5) 5)
+(check-expect (accumulator 5) 10)
 
 (test)
 
